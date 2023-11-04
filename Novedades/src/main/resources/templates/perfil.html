@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="/css/perfil.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+<div class="contenedor">
+    <div th:replace="/fragments/navbar :: div"> </div>
+    <div class="contenedor2">
+
+        <div>
+            <form th:action="@{/usuario/modificar/__${usuario.id}__}">
+                <div>
+                    <h4>Nombre de usuario</h4>
+                    <h3 th:text="${usuario.nombreUsuario}"></h3>
+                </div>
+                <div>
+                    <h4>Fecha de alta</h4>
+                    <h3 th:text="${usuario.fechaAlta}"></h3>
+                </div>
+                <div>
+                    <h4>Registrado como</h4>
+                    <h3 th:text="${usuario.rol}"></h3>
+                </div>
+                <div th:if="${usuario.activo}">
+                    <h4>Estado</h4>
+                    <h3  th:text="Activo"></h3>
+                </div>
+                <div th:if="${usuario.activo == false }" >
+                    <h4>Estado</h4>
+                    <h3 th:text="Activo"></h3>
+                </div>
+                <div>
+                    <input type="submit" value="Editar Usuario" class="btn">
+                </div>
+            </form>
+            <a th:href="@{/logout}" class="btn">Salir</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

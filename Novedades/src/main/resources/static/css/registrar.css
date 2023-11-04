@@ -1,0 +1,47 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: url("../background-noticias.jpg");
+    background-size: cover;
+}
+.contenedor{
+    background-color: darkslategray;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 400px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 2px;
+    text-align: center;
+}
+.contenedor form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.contenedor input[type="text"],input[type="password"] {
+    margin: 15px auto;
+    width: 90%;
+    height: 30px;
+    border-radius: 5px;
+    text-align: center;
+}
+.contenedor .btn{
+    padding: 15px 15px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 2px solid black;
+}
+.btn:hover{
+    border-color: #eeeeee;
+    background-color: black;
+    color: #eeeeee;
+}

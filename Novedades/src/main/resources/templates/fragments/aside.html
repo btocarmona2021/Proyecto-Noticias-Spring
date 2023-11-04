@@ -1,0 +1,16 @@
+<aside xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <ul class="menu">
+        <li sec:authorize="hasRole('ADMIN')"  class="item"><a th:href="@{/admin/listarusuarios}"><i class="fa-solid fa-users-viewfinder"></i> Modificar
+            Usuarios</a></li>
+        <li sec:authorize="hasRole('ADMIN')" class="item"><a th:href="@{/categoria/registrar}"><i class="fa-solid fa-layer-group" sec:authorize=""></i></i>  Crear
+            Categoría</a></li>
+        <li class="item"><a th:href="@{/admin/crearnoticia}"><i class="fa-regular fa-newspaper"></i> Crear Noticias</a>
+        </li>
+        <li class="item"><a th:href="@{/noticia/listar}"><i class="fa-solid fa-list-check"></i> Administrar noticias</a>
+        </li>
+        <li class="item"><a th:href="@{/logout}"><i class="fa-solid fa-door-open"></i></i> Cerrar Sesión</a>
+        </li>
+    </ul>
+    <a sec:authorize="hasRole('ADMIN')"  th:href="@{/noticia/eliminadas}" class="itemtrash"><i class="fa-regular fa-trash-can"></i></a>
+</aside>

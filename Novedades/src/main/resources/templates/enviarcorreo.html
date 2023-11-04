@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/enviar-correo" method="post">
+    <label for="destinatario">Destinatario:</label>
+    <input type="email" id="destinatario" name="destinatario" required>
+    <label for="asunto">Asunto:</label>
+    <input type="text" id="asunto" name="asunto" required>
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+    <button type="submit">Enviar Correo</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificar Usuario</title>
+    <link rel="stylesheet" href="/css/mod_usuario.css>
+    <link rel="stylesheet href="/css/navbar.css">
+</head>
+<body>
+    <div class="contenedor">
+        <aside th:replace="/fragments/aside :: aside" ></aside>
+        <div>
+            <form th:action="@{/usuario/modificado}" method="post">
+                <input type="hidden" th:value="${usuario.id}" name="id">
+                <input type="text" th:value="${usuario.nombreUsuario}" name="nombreUsuario">
+                <input type="submit" value="MODIFICAR" class="btn">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

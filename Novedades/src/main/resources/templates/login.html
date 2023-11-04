@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+<div class="contenedor">
+    <div th:replace="/fragments/navbar :: div"> </div>
+
+ <div class="login">
+     <form th:action="@{/logincheck}" method="POST">
+         <label for="name"> Ingrese Nombre de usuario</label>
+         <input type="text" name="nombreUsuario" class="input" id="name">
+         <label for="pass">Ingrese la clave</label>
+         <input type="password" name="password" class="input" id="pass">
+         <input type="submit" value="Ingresar" class="btn">
+     </form>
+ </div>
+</div>
+
+</body>
+</html>

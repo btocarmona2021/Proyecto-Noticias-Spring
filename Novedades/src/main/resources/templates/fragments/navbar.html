@@ -1,0 +1,30 @@
+<div class="header" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <header>
+        <div class="contenedor__imagen">
+            <img src="/logonoticias.png" alt=""/>
+        </div>
+        <div class="exito" th:if="${exito !=null}">
+            <i class="fa-solid fa-square-check"></i>
+            <p th:text="${exito}"></p>
+        </div>
+        <div>
+            <ul class="menu">
+                <li><a href="/"><i class="fa-solid fa-house"></i>Inicio</a></li>
+                <li><a href="/noticia/portal"><i class="fa-regular fa-file-lines"></i>Portal </a></li>
+                <li sec:authorize="hasAnyRole('ADMIN','PERIODISTA')"><a href="/admin/dashboard"><i
+                        class="fa-regular fa-file-lines"></i>Aministración</a></li>
+                <li sec:authorize="hasAnyRole('ADMIN','PERIODISTA','USUARIO')"><a href="/logout"><i
+                        class="fa-regular fa-file-lines"></i>Cerrar Sesiòn </a></li>
+                <li sec:authorize="not isAuthenticated()" ><a href="/registrar"><i class="fa-solid fa-plus"></i>Registrate!</a></li>
+            </ul>
+            <form action="/buscar" method="POST" class="busqueda">
+                <select name="categoria">
+                    <option>Filtrar por:</option>
+                    <option th:each="cat: ${categoria}" th:text="${cat.nombre}"></option>
+                </select>
+                <input type="submit" value="Buscar">
+            </form>
+        </div>
+
+    </header>
+</div>

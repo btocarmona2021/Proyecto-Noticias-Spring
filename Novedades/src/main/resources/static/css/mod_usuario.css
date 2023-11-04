@@ -1,0 +1,117 @@
+/*MENU PRINCIPAL*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', 'monospace';
+}
+
+.contenedor {
+    max-width: 100vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 28% 72%;
+    grid-template-rows: repeat(2, 1fr);
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-color: darkslategray;
+    padding: 10px 0px;
+}
+
+.item a {
+    text-decoration: none;
+    color: #eeeeee;
+    background-color: darkmagenta;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 2px black;
+}
+
+.menu {
+    width: 100%;
+    height: 3200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.menu li {
+    margin: 20px 0;
+}
+
+.titulo {
+    color: #eeeeee;
+    background-color: black;
+    padding: 10px 0;
+    text-align: center;
+}
+
+li a i{
+    font-size: 1.6rem;
+    margin-right: 5px;
+    color: #eeeeee;
+}
+.itemtrash{
+    margin: 20px 0;
+    text-align: center;
+    transform: scale(3);
+    color: #eeeeee;
+    filter: drop-shadow( 3px 3px 3px black);
+}
+
+/*MAIN*/
+.mod_usuario {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url("../background-noticias.jpg");
+    background-size: cover;
+}
+
+.mod_usuario form {
+    width: 300px;
+    height: 340px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(139, 0, 139, 0.82);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 2px black;
+}
+
+form > * {
+    margin: 5px 0;
+    text-align: center;
+    font-size: 1.1rem;
+}
+form input[type="checkbox"]{
+    transform: scale(2.5);
+    margin: 15px;
+}
+.btn {
+    padding: 10px 15px;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 6px;
+}
+
+.btn:hover {
+    background-color: black;
+    border-color: #eeeeee;
+    color: #eeeeee;
+}
+

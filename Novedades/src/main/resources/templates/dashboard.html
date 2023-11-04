@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Admin</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link href="/webjars/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="contenedor">
+  <aside th:replace="/fragments/aside :: aside" ></aside>
+    <main>
+        <div class="bienvenida">
+            <h1 th:text="${'Bienvenido '+ usuario.rol}"></h1>
+        </div>
+    </main>
+
+</div>
+
+
+</body>
+</html>

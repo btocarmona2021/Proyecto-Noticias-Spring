@@ -1,0 +1,115 @@
+@import url(https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,regular,500,600,700,800,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic);
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "JetBrains Mono",'monospace';
+    background: url(../background-noticias.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+label {
+    display: block;
+}
+
+textarea {
+    margin: 10px;
+}
+textarea {
+    width: 90%;
+}
+.btn {
+    background-color: rgb(9, 9, 67);
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+.btn:hover {
+    color: rgb(9, 9, 67);
+    background-color: white;
+    border: 1px solid rgb(208, 123, 77);
+    font-weight: 600;
+}
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 120px;
+    background-color: rgb(2, 23, 46);
+    border-radius: 0 0 0 50%;
+    box-shadow: 0 3px 3px white;
+}
+.contenedor__imagen{
+    width: 250px;
+    height: 80px;
+}
+.contenedor__imagen img{
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 1px 1px white);
+}
+.menu{
+    display: flex;
+    list-style: none;
+}
+.menu li{
+    margin: 5px 15px;
+    padding: 10px 15px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid blue;
+    outline: 2px solid#00cc00;
+}
+.menu li a{
+    text-decoration: none;
+    color: black;
+}
+.menu i{
+    margin: 0 5px;
+}
+.contenedor{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.login{
+    width: 260px;
+    height: 300px;
+    background-color: #1b3131;
+    margin: 100px auto;
+}
+.login form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 8px;
+    border: 2px solid black;
+    box-shadow: 0 0 3px 3px white;
+
+}
+.input{
+    height: 30px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.login form label{
+    color: #eeeeee;
+}
+.btn {
+    padding: 10px 15px;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 6px;
+}
+
+.btn:hover {
+    background-color: black;
+    border-color: #eeeeee;
+    color: #eeeeee;
+}

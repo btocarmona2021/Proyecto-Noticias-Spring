@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Registrar Categotía</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/webjars/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="/css/crear_categoria.css">
+    </head>
+    <body>
+        <div class="contenedor">
+          <aside th:replace="/fragments/aside :: aside"></aside>
+            <section>
+                <div class="contenedor_categoria">
+                    <div class="categoria">
+                        <h3>Crear Categoría</h3>
+                        <form action="/categoria/registro" method="POST">
+                            <input type="text" name="nombre" class="input_categoria" placeholder="Nombre de la categoría">
+                            <input type="text" name="imagen_cat" placeholder="Url de la imagen"class="input_categoria">
+                            <input type="submit" class="btn" value="Registrar Categoría">
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </body>
+</html>

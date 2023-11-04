@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul th:each="noticia :${noticias}">
+    <img th:src="${noticia.imagen}" alt=""></li>
+    <li th:text="${noticia.cuerpo}"></li>
+</ul>
+
+
+
+</body>
+</html>

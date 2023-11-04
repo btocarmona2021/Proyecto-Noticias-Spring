@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+
+<html lang="es" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title>Listar Noticias Eliminadas</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="/webjars/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/not_eliminadas.css">
+</head>
+<body>
+<div class="contenedor">
+    <aside th:replace="/fragments/aside :: aside"></aside>
+    <!--listado de noticias-->
+    <div class="tabla">
+        <table class="tabla_2">
+            <caption>Listado de Noticias eliminadas</caption>
+            <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Desarrollo</th>
+                <th>Imagen</th>
+                <th>Modificar</th>
+                <th>Habilitar</th>
+            </tr>
+            </thead>
+            <tbody th:each="noticia:${listanoticias}">
+            <tr>
+                <td th:text="${noticia.titulo}">datos</td>
+                <td th:text="${noticia.cuerpo}">datos</td>
+                <td><img th:src="${noticia.imagen}"></td>
+                <td><a th:href="@{/noticia/modificar/__${noticia.id}__}"><i class="fa-regular fa-pen-to-square"></i>Modificar</a>
+                </td>
+                <td><a th:href="@{/noticia/habilitar/__${noticia.id}__}"><i class="fa-solid fa-check"
+                                                                            style="color: #1df500;"></i>Habilitar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

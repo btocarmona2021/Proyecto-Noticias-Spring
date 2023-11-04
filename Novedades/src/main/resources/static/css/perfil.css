@@ -1,0 +1,130 @@
+@import url(https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,regular,500,600,700,800,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic);
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "JetBrains Mono", 'monospace';
+    background: url(../background-noticias.jpg);
+    background-size: cover;
+}
+
+label {
+    display: block;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding: 20px;
+    color: white;
+}
+
+textarea {
+    margin: 10px;
+}
+textarea {
+    width: 90%;
+}
+.btn {
+    background-color: rgb(9, 9, 67);
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+.btn:hover {
+    color: rgb(9, 9, 67);
+    background-color: white;
+    border: 1px solid rgb(208, 123, 77);
+    font-weight: 600;
+}
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 120px;
+    background-color: rgb(2, 23, 46);
+    border-radius: 0 0 0 50%;
+    box-shadow: 0 3px 3px white;
+}
+.contenedor__imagen{
+    width: 250px;
+    height: 80px;
+}
+.contenedor__imagen img{
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 1px 1px white);
+}
+.menu{
+    display: flex;
+    list-style: none;
+}
+.menu li{
+    margin: 5px 15px;
+    padding: 10px 15px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid blue;
+    outline: 2px solid#00cc00;
+}
+.menu li a{
+    text-decoration: none;
+    color: black;
+}
+.menu i{
+    margin: 0 5px;
+}
+.contenedor{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+}
+
+.header header{
+    display: flex;
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.contenedor2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: darkmagenta;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 3px 2px;
+    text-align: center;
+}
+.contenedor2 h4{
+    background-color: darkgrey;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 3px 3px;
+}
+.contenedor2 h3{
+    color: #eeeeee;
+}
+.btn{
+    background-color: transparent;
+    border: 2px solid black;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+.btn:hover{
+    border-color: #eeeeee;
+    color: #eeeeee;
+    background-color: black;
+}
+.contenedor{
+    display: flex;
+    flex-direction: column;
+}

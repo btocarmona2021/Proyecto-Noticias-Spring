@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registráte</title>
+    <link rel="stylesheet" href="/css/registrar.css">
+</head>
+<body>
+
+<div class="contenedor">
+    <div th:if="${error !=null}">
+        <h5 th:text="${error}"></h5>
+    </div>
+    <h4>REGISTRATE!</h4>
+    <form th:action="@{/registro}" method="POST" class="formulario">
+        <input type="text" placeholder="Nombre de Usuario" name="nombreUsuario" th:value="${nombreUsuario}">
+        <input type="password" placeholder="Password" name="password">
+        <input type="password" placeholder="Repite Password" name="verificacion">
+        <input type="submit" value="REGISTRARME" class="btn">
+    </form>
+</div>
+
+
+
+</body>
+</html>

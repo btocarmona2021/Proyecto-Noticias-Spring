@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Listar Noticias</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="/webjars/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/listar_not_admin.css">
+</head>
+<body>
+<div class="contenedor">
+    <aside th:replace="/fragments/aside :: aside"></aside>
+    <!--listado de noticias-->
+    <div class="tabla">
+        <table class="tabla_2">
+            <caption>Listado de Noticias</caption>
+            <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Desarrollo</th>
+                <th>Imagen</th>
+                <th>Creador</th>
+                <th>Modificar</th>
+                <th sec:authorize="hasRole('ADMIN')"  >Eliminar</th>
+            </tr>
+            </thead>
+            <tbody th:each="noticia:${listanoticias}">
+            <tr>
+                <td th:text="${noticia.titulo}">datos</td>
+                <td th:text="${noticia.cuerpo}">datos</td>
+                <td><img th:src="${noticia.imagen}"></td>
+                <th th:text="${noticia.creador != null ? noticia.creador.nombreUsuario :'ADMIN'}"></th>
+                <td><a th:href="@{/noticia/modificar/__${noticia.id}__}"><i class="fa-regular fa-pen-to-square"></i>Modificar</a>
+                </td>
+                <td sec:authorize="hasRole('ADMIN')"  ><a th:href="@{/noticia/eliminar/__${noticia.id}__}"><i class="fa-regular fa-trash-can"></i></i>
+                    eliminar</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
+</html>

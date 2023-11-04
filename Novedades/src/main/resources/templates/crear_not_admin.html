@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Agregar Noticias</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="/webjars/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/crear_not_admin.css">
+</head>
+<body>
+<div class="contenedor">
+    <aside th:replace="/fragments/aside :: aside" ></aside>
+    <section>
+        <div class="contenedor__noticia" >
+            <h3 >Agregar noticia</h3>
+            <form action="/noticia/registro" method="POST">
+
+                <label for="titulo">Ingresa el titulo de la noticia</label>
+                <input
+                        type="text"
+                        placeholder="Titulo de la Noticia"
+                        name="titulo"
+                        id="titulo"
+                />
+                <label for="titulo2">Ingresa la ruta de la imagen</label>
+                <input
+                        type="text"
+                        placeholder="url de la imagen"
+                        name="imagen"
+                        id="titulo2"
+                />
+                <label for="cuerpo">Ingresa la noticia</label>
+                <textarea
+                        name="cuerpo"
+                        id="cuerpo"
+                        cols="20"
+                        rows="10"
+                ></textarea>
+
+                <select name="idCategoria">
+                    <option> Seleccione la categoria</option>
+                    <option th:each="categoria : ${categorias}"
+                            th:value="${categoria.id}"
+                            th:text="${categoria.nombre}">
+                    </option>
+
+                </select>
+                <p>PUBLICAR?</p>
+                <input type="checkbox" checked name="estado">
+
+                <div th:if="${error !=null}"
+                        style="width: 400px;background-color: darkred;color: white;border-radius: 10px;">
+                    <h4>Error</h4>
+                    <p th:text="${error}"></p>
+                </div>
+                <input type="submit" value="Agregar Noticia" class="btn"/>
+            </form>
+        </div>
+    </section>
+</div>
+</body>
+</html>

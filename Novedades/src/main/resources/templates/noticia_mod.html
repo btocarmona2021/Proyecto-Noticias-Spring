@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Modificar Noticia</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="/webjars/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,regular,500,600,700,800,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic);
+
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "JetBrains Mono".'monospace';
+            background: url(/background-noticias.jpg);
+        }
+
+        .contenedor {
+            width: 100%;
+            max-width: 1200px;
+            height: 500px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+        }
+
+        .contenedor__noticia {
+            width: 420px;
+            margin: 0 auto;
+            background: url(/SL-112119-25250-32.jpg);
+            background-size: cover;
+            background-position: top;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .contenedor__noticia span {
+            font-size: 1.3rem;
+            margin-top: 10px;
+            text-transform: uppercase;
+            color: wheat;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+
+        form input,
+        textarea {
+            margin: 10px;
+        }
+
+        textarea {
+            width: 90%;
+        }
+
+        .btn {
+            background-color: rgb(9, 9, 67);
+            color: white;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #eee;
+        }
+
+        .btn:hover {
+            color: rgb(9, 9, 67);
+            background-color: white;
+            border: 1px solid rgb(208, 123, 77);
+            font-weight: 600;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            height: 120px;
+            background-color: rgb(2, 23, 46);
+            border-radius: 0 0 0 50%;
+            box-shadow: 0 3px 3px white;
+        }
+
+        .contenedor__imagen {
+            width: 250px;
+            height: 80px;
+        }
+
+        .contenedor__imagen img {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 1px 1px white);
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .menu li {
+            margin: 5px 15px;
+            padding: 10px 15px;
+            background-color: white;
+            border-radius: 8px;
+            border: 1px solid blue;
+            outline: 2px solid #00cc00;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: black;
+        }
+
+        #titulo {
+            width: 80%;
+            height: 30px;
+            font-size: 1.5rem;
+        }
+
+        #cuerpo {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .menu i {
+            margin: 0 5px;
+        }
+
+        .preview {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<div class="contenedor">
+    <header>
+        <div class="contenedor__imagen">
+            <img src="/logonoticias.png" alt=""/>
+        </div>
+        <div>
+            <div>
+                <ul class="menu">
+                    <li><a href="/"><i class="fa-solid fa-house"></i>Inicio</a></li>
+                    <li><a href="/noticia/portal"><i class="fa-regular fa-file-lines"></i>Portal </a></li>
+                    <li><a href="/categoria/registrar"><i class="fa-solid fa-plus"></i>Categoría</a></li>
+                    <li><a href="/noticia/registrar"><i class="fa-solid fa-plus"></i>Noticia</a></li>
+                    <li><a href="/noticia/listar"><i class="fa-solid fa-list"></i>Listar</a></li>
+                    <li><a href="/noticia/eliminadas"><i class="fa-regular fa-trash-can fa-xl"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="contenedor__noticia">
+            <span>Modificar Noticia</span>
+            <form th:action="@{/noticia/modificar/__${noticia.id}__}" method="POST">
+                <label for="titulo">Cambiar el Titulo?</label>
+                <input type="hidden" th:value="${noticia.id}" name="id">
+                <input th:value="${noticia.titulo}"
+                       type="text"
+                       placeholder="Titulo de la Noticia"
+                       name="titulo"
+                       id="titulo"
+                />
+                <label for="titulo">Cambiar la imagen?</label>
+
+                <input th:value="${noticia.imagen}"
+                       type="text"
+                       placeholder="Titulo de la Noticia"
+                       name="imagen"
+                       id="titulo2"
+                />
+                <img class="preview " th:src="${noticia.imagen}">
+
+                <label for="cuerpo">Modificar la noticia?</label>
+                <textarea th:text="${noticia.cuerpo}"
+                          name="cuerpo"
+                          id="cuerpo"
+                          cols="20"
+                          rows="10"
+                ></textarea>
+                <select name="idCategoria">
+                    <option th:text="${noticia.categoria.nombre}" selected th:value="${noticia.categoria.id}"> Modificar
+                        Categoría?
+                    </option>
+                    <option th:each="categoria : ${listadocategorias}"
+                            th:value="${categoria.id}"
+                            th:text="${categoria.nombre}">
+                    </option>
+                </select>
+                <div th:if="${noticia.estado}">
+                    <p>PUBLICADA</p>
+                </div>
+                <div th:if="${!noticia.estado}">
+                    <p>SIN PUBLICAR</p>
+                </div>
+                <input sec:authorize="hasRole('ADMIN')" type="checkbox" th:checked="${noticia.estado}" name="estado"/>
+                <input type="submit" value="Modificar Noticia" class="btn"/>
+            </form>
+        </div>
+    </section>
+</div>
+</body>
+</html>
+

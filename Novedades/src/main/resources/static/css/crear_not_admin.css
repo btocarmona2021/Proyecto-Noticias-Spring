@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', 'monospace';
+}
+.contenedor{
+    background: url("../background-noticias.jpg");
+    background-size: cover;
+    max-width: 100vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 28% 72%;
+    grid-template-rows: repeat(2,1fr);
+}
+aside{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-color: darkslategray;
+    padding: 10px 0px;
+}
+
+.item a{
+    text-decoration: none;
+    color: #eeeeee;
+    background-color: darkmagenta;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 2px black;
+}
+.menu{
+    width: 100%;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    list-style: none;
+}
+.menu li{
+    margin: 20px 0;
+}
+.titulo{
+    color: #eeeeee;
+    background-color: black;
+    padding: 10px 0;
+    text-align: center;
+}
+.bienvenida{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url("../background-noticias.jpg");
+    background-size: cover;
+}
+.bienvenida h1{
+    font-size: 5rem;
+    text-shadow: 2px 2px 2px white;
+}
+li a i{
+    font-size: 1.6rem;
+    margin-right: 5px;
+    color: #eeeeee;
+}
+.itemtrash{
+    margin: 20px 0;
+    text-align: center;
+    transform: scale(3);
+    color: #eeeeee;
+    filter: drop-shadow( 3px 3px 3px black);
+}
+section{
+    position: relative;
+
+}
+.contenedor__noticia{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color: #eeeeee;
+
+
+}
+.contenedor__noticia form{
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(139, 0, 139, 0.82);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 3px black;
+    margin: 10px;
+}
+.contenedor__noticia h3{
+    width: 100%;
+    background-color: black;
+    padding: 8px 0;
+    box-shadow: 2px 0 0 2px #eeeeee;
+}
+.contenedor__noticia form input[type="checkbox"] {
+    transform: scale(2);
+}
+.btn{
+    padding: 10px 15px;
+    width: 40%;
+    margin: 10px auto;
+    border: 2px solid black;
+    background-color: transparent;
+    border-radius: 8px;
+}
+.btn:hover{
+    border-color: #eeeeee;
+    color: #eeeeee;
+    background-color: black;
+}
