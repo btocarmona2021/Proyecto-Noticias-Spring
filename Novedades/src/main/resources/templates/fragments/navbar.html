@@ -17,7 +17,7 @@
                         class="fa-regular fa-file-lines"></i>Cerrar Sesiòn </a></li>
                 <li sec:authorize="not isAuthenticated()" ><a href="/registrar"><i class="fa-solid fa-plus"></i>Registrate!</a></li>
             </ul>
-            <form action="/buscar" method="POST" class="busqueda">
+            <form sec:authorize="isAuthenticated()" action="/buscar" method="POST" class="busqueda">
                 <select name="categoria">
                     <option>Filtrar por:</option>
                     <option th:each="cat: ${categoria}" th:text="${cat.nombre}"></option>

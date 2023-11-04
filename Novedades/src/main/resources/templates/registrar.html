@@ -12,6 +12,7 @@
         <h5 th:text="${error}"></h5>
     </div>
     <h4>REGISTRATE!</h4>
+
     <form th:action="@{/registro}" method="POST" class="formulario">
         <input type="text" placeholder="Nombre de Usuario" name="nombreUsuario" th:value="${nombreUsuario}">
         <input type="password" placeholder="Password" name="password">

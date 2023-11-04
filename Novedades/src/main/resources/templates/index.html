@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 
     <title>Portal de Noticias</title>
@@ -133,7 +133,7 @@
                 <li sec:authorize="not isAuthenticated()"><a href="/registrar"><i class="fa-solid fa-plus"></i>Registrate!</a></li>
             </ul>
 
-            <form action="/buscar" method="POST" class="busqueda">
+            <form sec:authorize="isAuthenticated()" action="/buscar" method="POST" class="busqueda">
                 <select  name="categoria">
                     <option>Filtrar por:</option>
                     <option th:each="cat: ${categoria}" th:text="${cat.nombre}"></option>
