@@ -17,12 +17,7 @@
             <input type="text" th:value="${usuario.nombreUsuario}" name="nombreUsuario" id="nombreUsuario">
             <label for="rol">Rol</label>
             <input th:value="${usuario.rol}" id="rol" readonly>
-
-<!--            <label for="sueldo">Sueldo Mensual</label>-->
-<!--            <input type="number" th:value=" ${usuario.sueldoMensual}" name="sueldoMensual" id="sueldo">-->
-
             <h4 th:text="${usuario.activo ? 'Estado: Activo':'Estado: Descactivado'}">Estado</h4>
-<!--            <input type="checkbox" th:checked="${usuario.activo}" name="activo" id="check"/>-->
             <div>
                 <input type="submit" th:value="MODIFICAR" class="btn">
                 <a th:href="@{/admin/listarusuarios}"><input type="button" th:value="CANCELAR" class="btn"></a>

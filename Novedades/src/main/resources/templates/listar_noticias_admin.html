@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Listar Noticias</title>
@@ -26,7 +21,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <th>Imagen</th>
                 <th>Creador</th>
                 <th>Modificar</th>
-                <th sec:authorize="hasRole('ADMIN')"  >Eliminar</th>
+                <th sec:authorize="hasRole('ADMIN')">Eliminar</th>
             </tr>
             </thead>
             <tbody th:each="noticia:${listanoticias}">
@@ -37,7 +32,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <th th:text="${noticia.creador != null ? noticia.creador.nombreUsuario :'ADMIN'}"></th>
                 <td><a th:href="@{/noticia/modificar/__${noticia.id}__}"><i class="fa-regular fa-pen-to-square"></i>Modificar</a>
                 </td>
-                <td sec:authorize="hasRole('ADMIN')"  ><a th:href="@{/noticia/eliminar/__${noticia.id}__}"><i class="fa-regular fa-trash-can"></i></i>
+                <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/noticia/eliminar/__${noticia.id}__}"><i
+                        class="fa-regular fa-trash-can"></i></i>
                     eliminar</a></td>
             </tr>
             </tbody>
@@ -45,5 +41,4 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </div>
 </div>
 </body>
-</html>
 </html>
