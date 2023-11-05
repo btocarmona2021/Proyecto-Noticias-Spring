@@ -11,6 +11,7 @@ import com.egg.novedades.servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;/*
 import org.springframework.security.access.prepost.PreAuthorize;*/
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -63,6 +64,31 @@ public class AdminControlador {
             return "mod_usuario_admin.html";
         }
     }
+
+    @GetMapping("adminperiodista")
+    public String adminperiodistas(ModelMap model){
+        List<Periodista> listaperiodistas = periodistaServ.listarPeriodista();
+        model.addAttribute("listarperiodistas",listaperiodistas);
+        return "listaperiodistas.html";
+    }
+    @GetMapping("/modificarsueldo/{id}")
+    public String modsueldo(@PathVariable String id, ModelMap model){
+        Periodista periodista = periodistaServ.obtenerUno(id);
+        model.put("usuario",periodista);
+        return "mod_sueldo";
+    }
+    @PostMapping("modificasueldo")
+    public String sueldoModificado(String id,Double sueldoMensual,ModelMap model){
+        try {
+            periodistaServ.modificarsueldo(id, sueldoMensual);
+            model.put("exito","El sueldo ha sido modificado correctamente");
+            return "redirect:./adminperiodista";
+        } catch (MisExcepciones e) {
+            model.put("error",e.getMessage());
+            return "mod_sueldo";
+        }
+    }
+
 
 
 

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificar Usuario</title>
+    <link rel="stylesheet" href="/css/mod_usuario.css">
+    <link href="/webjars/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="contenedor">
+    <aside th:replace="/fragments/aside :: aside"></aside>
+    <div class="mod_usuario">
+        <form th:action="@{/admin/modificasueldo}" method="post">
+            <input type="hidden" th:value="${usuario.id}" name="id">
+            <label for="nombreUsuario">Nombre de Usuario</label>
+            <input type="text" th:value="${usuario.nombreUsuario}" name="nombreUsuario" id="nombreUsuario">
+            <label for="rol">Rol</label>
+            <input th:value="${usuario.rol}" id="rol" readonly>
+
+            <label for="sueldo">Sueldo Mensual</label>
+            <input type="number" th:value=" ${usuario.sueldoMensual}" name="sueldoMensual" id="sueldo">
+
+            <h4 th:text="${usuario.activo ? 'Estado: Activo':'Estado: Descactivado'}">Estado</h4>
+            <div>
+                <input type="submit" th:value="MODIFICAR" class="btn">
+                <a th:href="@{/admin/listarusuarios}"><input type="button" th:value="CANCELAR" class="btn"></a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

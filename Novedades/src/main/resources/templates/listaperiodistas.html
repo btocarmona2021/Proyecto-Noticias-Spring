@@ -11,31 +11,6 @@
 <div class="contenedor">
     <aside th:replace="/fragments/aside :: aside"></aside>
     <div  class="tabla">
-        <table class="tabla_2" th:if="${listausuarios != null}">
-            <thead>
-            <tr>
-                <th>Nombre de usuario</th>
-                <th>Fecha de alta</th>
-                <th>Rol</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-            </tr>
-            </thead>
-            <tbody th:each="usuario : ${listausuarios}">
-            <tr>
-            </tr>
-            <tr th:if="${usuario.rol.name()=='USUARIO'}">
-                <td th:text="${usuario.nombreUsuario}"></td>
-                <td th:text="${usuario.fechaAlta}"></td>
-                <td th:text="${usuario.rol}"></td>
-                <td th:text="${usuario.activo ? 'Activado':'Desactivado'}"></td>
-                <td><a  th:if="${usuario.activo == true}" th:href="@{/admin/modificarUsuario/__${usuario.id}__}">Modificar <i
-                        class="fa-solid fa-user-pen"></i></a></td>
-            </tr>
-            </tbody>
-        </table>
-
-
         <table class="tabla_2">
             <thead>
             <tr>
@@ -55,7 +30,7 @@
                 <td th:text="${usuario.sueldoMensual}"></td>
                 <td th:text="${usuario.activo ? 'Activado':'Desactivado'}"></td>
 
-                <td><a th:href="@{/admin/modificarperiodista/__${usuario.id}__}">Modificar <i
+                <td><a th:href="@{/admin/modificarsueldo/__${usuario.id}__}">Modificar <i
                         class="fa-solid fa-user-pen"></i></a></td>
             </tr>
             </tbody>

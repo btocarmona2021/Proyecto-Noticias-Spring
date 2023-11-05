@@ -75,4 +75,5 @@ public class AdminServicio {
         periodista.setActivo(false);
         periodistaRep.save(periodista);
     }
+
 }

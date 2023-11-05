@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 //NUEVO COMENTARIO
 
 @Service
@@ -37,6 +38,19 @@ public class PeriodistaServicio {
         List<Periodista> listaperiodista;
         listaperiodista = periodistaRep.findAll();
         return listaperiodista;
+    }
+    @Transactional
+    public  void modificarsueldo(String id ,Double sueldo) throws MisExcepciones{
+        if (sueldo < 0){
+            throw new MisExcepciones("El valor del sueldo no puede ser negativo");
+        }
+        Periodista periodista=null;
+        Optional<Periodista> respuesta = periodistaRep.findById(id);
+        if (respuesta.isPresent()){
+            periodista= respuesta.get();
+        }
+        periodista.setSueldoMensual(sueldo);
+        periodistaRep.save(periodista);
     }
 
     public Periodista obtenerUno(String id) {
