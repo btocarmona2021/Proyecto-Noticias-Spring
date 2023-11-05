@@ -2,7 +2,8 @@
 
     <ul class="menu">
         <li sec:authorize="hasRole('ADMIN')"  class="item"><a th:href="@{/admin/listarusuarios}"><i class="fa-solid fa-users-viewfinder"></i> Modificar
-            Usuarios</a></li>
+            Rol</a></li>
+        <li sec:authorize="hasRole('ADMIN')"  class="item"><a th:href="@{/admin/adminperiodistas}"><i class="fa-solid fa-users-viewfinder"></i> Sueldo Periodista</a></li>
         <li sec:authorize="hasRole('ADMIN')" class="item"><a th:href="@{/categoria/registrar}"><i class="fa-solid fa-layer-group" sec:authorize=""></i></i>  Crear
             Categoría</a></li>
         <li class="item"><a th:href="@{/admin/crearnoticia}"><i class="fa-regular fa-newspaper"></i> Crear Noticias</a>
