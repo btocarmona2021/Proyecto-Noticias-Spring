@@ -3,12 +3,13 @@ package com.egg.novedades.servicios;
 import com.egg.novedades.entidades.Categoria;
 import com.egg.novedades.excepciones.MisExcepciones;
 import com.egg.novedades.repositorios.CategoriaRepositorio;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoriaServicio {
@@ -45,7 +46,7 @@ public class CategoriaServicio {
         }
     }
 
-    public List listadoCategorias() {
+    public List<Categoria> listadoCategorias() {
         List<Categoria> listadoCattegorias = new ArrayList<>();
         listadoCattegorias = categoriaRep.findAll();
         return listadoCattegorias;

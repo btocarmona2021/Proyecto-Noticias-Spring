@@ -25,6 +25,7 @@ import java.util.Optional;
 
 @Service
 public class UsuarioServicio implements UserDetailsService {
+
     @Autowired
     private UsuarioRepositorio usuarioRep;
 
@@ -42,7 +43,7 @@ public class UsuarioServicio implements UserDetailsService {
 
     @Transactional
     public void modificarUsuario(String id, String nombreUsuario) throws MisExcepciones {
-        if (nombreUsuario.isEmpty() || nombreUsuario == null) {
+        if (nombreUsuario == null || nombreUsuario.isEmpty()) {
             throw new MisExcepciones("El nombre de usuario no puede ser nulo");
         }
         Usuario usuario = new Usuario();
@@ -56,7 +57,7 @@ public class UsuarioServicio implements UserDetailsService {
 
     @Transactional
     public void modificarUsuario_admin(String id, String nombreUsuario) throws MisExcepciones {
-        if (nombreUsuario.isEmpty() || nombreUsuario == null) {
+        if (nombreUsuario == null || nombreUsuario.isEmpty()) {
             throw new MisExcepciones("El nombre de usuario no puede ser nulo");
         }
         Usuario usuario = new Usuario();
@@ -68,21 +69,24 @@ public class UsuarioServicio implements UserDetailsService {
         usuarioRep.save(usuario);
     }
 
-    public List listarUsuario() {
-        List<Usuario> listaUsuarios = new ArrayList<>();
+    public List<Usuario> listarUsuario() {
+        List<Usuario> listaUsuarios;
         listaUsuarios = usuarioRep.findAll();
         return listaUsuarios;
     }
 
     public Usuario buscauno(String id) {
-        Usuario usuario = usuarioRep.getOne(id);
+        Usuario usuario = new Usuario();
+        Optional<Usuario> respuesta = usuarioRep.findById(id);
+        if (respuesta.isPresent()) {
+            usuario = respuesta.get();
+        }
         return usuario;
     }
 
-
     public void validarDatos(String nombreUsuario, String password, String verificacion) throws MisExcepciones {
 
-        if (nombreUsuario.isEmpty() || nombreUsuario == null) {
+        if (nombreUsuario == null || nombreUsuario.isEmpty()) {
             throw new MisExcepciones("El nombre de usuario no puede ser nulo");
         }
 
@@ -93,6 +97,7 @@ public class UsuarioServicio implements UserDetailsService {
             throw new MisExcepciones("El password debe tener al menos 5 caracteres");
         }
     }
+
     @Override
     public UserDetails loadUserByUsername(String nombreUsuario) throws UsernameNotFoundException {
 
@@ -100,18 +105,12 @@ public class UsuarioServicio implements UserDetailsService {
 
         if (usuario != null) {
 
-            List<GrantedAuthority> permisos = new ArrayList();
-
+            List<GrantedAuthority> permisos = new ArrayList<>();
             GrantedAuthority p = new SimpleGrantedAuthority("ROLE_" + usuario.getRol().toString());
-
             permisos.add(p);
-
             ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-
             HttpSession session = attr.getRequest().getSession(true);
-
             session.setAttribute("session", usuario);
-
             return new User(usuario.getNombreUsuario(), usuario.getPassword(), permisos);
         } else {
             return null;

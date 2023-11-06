@@ -1,6 +1,5 @@
 package com.egg.novedades.entidades;
 
-
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
@@ -9,13 +8,12 @@ import javax.persistence.Id;
 
 @Entity
 public class Categoria {
-
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid" ,strategy = "uuid2")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
-    
+
     private String imagen_cat;
 
     public Categoria() {
@@ -45,10 +43,5 @@ public class Categoria {
         this.imagen_cat = imagen_cat;
     }
 
-    
- 
-    
-    
-    
-    
+
 }

@@ -1,24 +1,23 @@
 @import url(https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,regular,500,600,700,800,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic);
 
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "JetBrains Mono",'monospace';
+    background: url(../background-noticias.jpg);
+}
 .contenedor__noticia {
-    width: 7801px;
+    width: 780px;
     margin: 20px 0 auto;
-    background: url(../SL-112119-25250-32.jpg);
-    height: 4001px;
+    height: 400px;
     background-size: cover;
-    background-position: top;
+    background: url(../SL-112119-25250-32.jpg) top;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-}
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "JetBrains Mono".'monospace';
-    background: url(../background-noticias.jpg);
 }
 .contenedor {
     width: 100%;

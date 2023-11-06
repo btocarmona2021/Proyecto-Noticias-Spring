@@ -10,13 +10,13 @@
 
 <div class="contenedor">
     <aside th:replace="/fragments/aside :: aside"></aside>
-    <div  class="tabla">
+    <div class="tabla">
         <table class="tabla_2" th:if="${listausuarios != null}">
             <thead>
             <tr>
                 <th>Nombre de usuario</th>
                 <th>Fecha de alta</th>
-                <th>Rol</th>
+                <th>Rol</th> 0
                 <th>Estado</th>
                 <th>Acciones</th>
             </tr>
@@ -29,8 +29,9 @@
                 <td th:text="${usuario.fechaAlta}"></td>
                 <td th:text="${usuario.rol}"></td>
                 <td th:text="${usuario.activo ? 'Activado':'Desactivado'}"></td>
-                <td><a  th:if="${usuario.activo == true}" th:href="@{/admin/modificarUsuario/__${usuario.id}__}">Modificar <i
-                        class="fa-solid fa-user-pen"></i></a></td>
+                <td><a th:if="${usuario.activo == true}" th:href="@{/admin/modificarUsuario/__${usuario.id}__}">Modificar
+                    <i
+                            class="fa-solid fa-user-pen"></i></a></td>
             </tr>
             </tbody>
         </table>

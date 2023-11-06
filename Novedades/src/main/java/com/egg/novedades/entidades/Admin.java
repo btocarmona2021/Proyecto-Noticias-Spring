@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Admin extends Usuario{
+public class Admin extends Usuario {
     private String nombre;
-
 }
