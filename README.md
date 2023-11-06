@@ -1,4 +1,4 @@
-# Proyecto Noticias Spring 2.7.16 - JDK 1.8
+# Proyecto Noticias Spring 2.7.16 - JDK 8
 
 * El proyecto de Noticias, cuenta con un panel administrativo, en el cual se puede cambiar de rol al usuario registrado,
   pudiendo darle permisos de Periodista a un usuario y publicar en el sitio.
